@@ -1,0 +1,9 @@
+Company: Philips
+Source: https://en.wikipedia.org/wiki/Philips
+Fetched At (UTC): 2026-05-01T05:36:45.797476+00:00
+
+Summary:
+Koninklijke Philips N.V., simply branded Philips, is a Dutch multinational health technology and former consumer electronics company that was founded in Eindhoven in 1891. Since 1997, its world headquarters have been situated in Amsterdam, though the Benelux headquarters is still in Eindhoven. The company gained its royal honorary title in 1998.
+
+Ownership Hints:
+- No explicit owner/parent line found

@@ -1,0 +1,9 @@
+Company: twitter
+Source: https://en.wikipedia.org/wiki/X_(social_network)
+Fetched At (UTC): 2026-05-01T05:31:44.187783+00:00
+
+Summary:
+X, formerly known as Twitter, is an American microblogging and social networking service, headquartered in Bastrop, Texas. It is one of the world's largest social media platforms and one of the most-visited websites. Users can share short text messages, images, and videos in short posts and like other users' content. The platform also includes direct messaging, video and audio calling, bookmarks, lists, communities, Grok chatbot integration, job search, and a social audio feature. Users can vote on context added by approved users using the Community Notes feature.
+
+Ownership Hints:
+- No explicit owner/parent line found
