@@ -1,9 +1,0 @@
-Company: hul
-Source: https://en.wikipedia.org/wiki/Hul
-Fetched At (UTC): 2026-05-01T04:42:36.782514+00:00
-
-Summary:
-In the Book of Genesis, Hul is the son of Aram, son of Shem, who is mentioned twice in the Tanakh, both times in genealogical tables. According to the 1st century Jewish historian Flavius Josephus, he founded Armenia. Because his father is Aram, the eponymous ancestor of the Arameans, the Holman Bible Dictionary infers that he must have been included in the Table of Nations as "the original ancestor of an Aramean or Syrian tribe."
-
-Ownership Hints:
-- No explicit owner/parent line found

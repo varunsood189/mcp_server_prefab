@@ -21,8 +21,10 @@ This project is a minimal MCP server that demonstrates all three required capabi
 ```
 assignment_mcp_prefab/
 ├── server.py          # MCP server — defines all 3 tools
-├── client_demo.py     # Scripted MCP client — calls all tools in order
+├── client_demo.py     # Scripted MCP client (direct + Gemini planner mode)
+├── streamlit_app.py   # Optional Streamlit input UI for running the MCP flow
 ├── requirements.txt   # Python dependencies
+├── .env               # Optional local secrets (GEMINI_API_KEY), gitignored
 └── data/              # Sandboxed folder for local file operations
     └── README.md      # Notes on CRUD scope
 ```
@@ -84,7 +86,7 @@ Launches the FastMCP dev server and opens a browser where you can call tools int
 
 ```bash
 source .venv/bin/activate
-fastmcp dev apps server.py
+fastmcp dev apps server.py --mcp-port 8001 --ui-port 8002
 ```
 
 Open the printed URL in your browser, then paste the forced prompt below into the tool runner.
@@ -97,7 +99,7 @@ Runs all 4 tool calls automatically via stdio transport and prints results in te
 
 ```bash
 source .venv/bin/activate
-python client_demo.py
+python client_demo.py --company "Tata Sons"
 ```
 
 With custom arguments:
@@ -108,6 +110,38 @@ python client_demo.py \
   --filename "tata_sons_ownership.txt" \
   --heading "Tata Sons Ownership Dashboard"
 ```
+
+### Option C — Scripted client with Gemini tool planning
+
+Uses **Gemini `gemini-2.5-flash-lite`** to decide each tool call step-by-step, while this project still executes the MCP tools (`fetch_company_ownership`, `local_file_crud`, `ownership_dashboard`) in sequence.
+
+```bash
+source .venv/bin/activate
+python client_demo.py \
+  --use-llm \
+  --company "Tata Sons" \
+  --filename "tata_sons_ownership.txt" \
+  --heading "Tata Sons Ownership Dashboard"
+```
+
+Notes:
+- `client_demo.py` auto-loads `.env` and reads `GEMINI_API_KEY` if present.
+- `--gemini-api-key "..."` can be passed directly and takes precedence.
+- This mode prints an LLM reasoning trace and tool call payloads in terminal.
+- Visual Prefab rendering still requires `fastmcp dev apps server.py`.
+
+### Option D — Streamlit input UI
+
+Use Streamlit as a second UI to collect user input and run the same MCP flow.
+
+```bash
+source .venv/bin/activate
+streamlit run streamlit_app.py
+```
+
+Notes:
+- Supports direct mode and Gemini planner mode from the UI.
+- Prefab dashboard tool is still called in the flow; visual Prefab rendering remains via `fastmcp dev apps`.
 
 ---
 
@@ -174,6 +208,7 @@ Entry Points
 |---------|---------|
 | `fastmcp` | MCP server framework — `@mcp.tool`, `Client`, `mcp.run()`, dev server |
 | `prefab-ui` | Prefab component library — `PrefabApp`, `Card`, `Text` for the dashboard tool |
+| `streamlit` | Optional web UI for collecting user input and running the flow |
 
 Standard library only for HTTP (`urllib.request`), parsing (`re`), and file I/O (`pathlib`) — no extra HTTP client needed.
 

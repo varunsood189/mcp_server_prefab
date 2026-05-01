@@ -1,9 +1,0 @@
-Company: DELL
-Source: https://en.wikipedia.org/wiki/Dell_Technologies
-Fetched At (UTC): 2026-05-01T06:45:33.300578+00:00
-
-Summary:
-Dell Technologies Inc. is an American multinational technology company that has been headquartered in Round Rock, Texas, since 1994. It was formed as a result of the September 2016 merger of Dell and EMC Corporation. Dell Technologies ranked 48th on the 2024 Fortune 500 rankings of the largest United States corporations based on its 2023 revenue; its products include personal computers, servers, monitors, computer software, computer security and network security, as well as information security services.
-
-Ownership Hints:
-- No explicit owner/parent line found

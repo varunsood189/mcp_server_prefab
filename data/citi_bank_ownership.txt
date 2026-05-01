@@ -1,0 +1,9 @@
+Company: Citi Bank
+Source: https://en.wikipedia.org/wiki/Citibank
+Fetched At (UTC): 2026-05-01T10:21:24.793000+00:00
+
+Summary:
+Citibank, N.A. is the primary U.S. banking subsidiary of Citigroup, a financial services multinational corporation. Citibank was founded in 1812 as City Bank of New York, and later became First National City Bank of New York. The bank has branches in 19 countries. The U.S. branches are concentrated in six metropolitan areas: New York City, Chicago, Los Angeles, San Francisco, Washington, D.C., and Miami.
+
+Ownership Hints:
+- No explicit owner/parent line found

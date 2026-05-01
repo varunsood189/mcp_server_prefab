@@ -1,9 +1,0 @@
-Company: URBN
-Source: https://en.wikipedia.org/wiki/URBN_hotels_Shanghai
-Fetched At (UTC): 2026-05-01T06:44:11.502345+00:00
-
-Summary:
-URBN Hotel Shanghai is a boutique hotel located in Jing'an District in Shanghai, China. It is the first "carbon neutral hotel" in China: to be declared such, it is a part of the Cachet Hotel Group.
-
-Ownership Hints:
-- No explicit owner/parent line found

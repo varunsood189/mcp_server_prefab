@@ -55,6 +55,25 @@ def _default_ownership_filename(company: str) -> str:
     return f"{safe}_ownership.txt"
 
 
+def _normalize_company_query(company_name: str) -> str:
+    """
+    Normalize UI/user phrasing to a cleaner Wikipedia company title candidate.
+    Example: "Philips Ownership" -> "Philips"
+    """
+    text = company_name.strip()
+    if not text:
+        return ""
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(
+        r"\b(ownership|owner|parent|details|report|dashboard)\b",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(r"\s+", " ", text).strip(" -_,.:;!?")
+    return text
+
+
 def _http_get_json(url: str) -> dict[str, Any]:
     req = Request(
         url=url,
@@ -91,7 +110,8 @@ def fetch_company_ownership(company_name: str) -> dict[str, Any]:
     Internet tool:
     Fetch company ownership hints from Wikipedia summary + infobox wikitext.
     """
-    page_title = company_name.strip().replace(" ", "_")
+    normalized_company = _normalize_company_query(company_name)
+    page_title = normalized_company.replace(" ", "_")
     if not page_title:
         return {"ok": False, "error": "company_name cannot be empty"}
 
@@ -109,7 +129,7 @@ def fetch_company_ownership(company_name: str) -> dict[str, Any]:
     except Exception as exc:
         return {
             "ok": False,
-            "company": company_name.strip(),
+            "company": normalized_company,
             "error": f"Failed to fetch company data: {exc}",
         }
 
@@ -127,7 +147,7 @@ def fetch_company_ownership(company_name: str) -> dict[str, Any]:
 
     result: dict[str, Any] = {
         "ok": True,
-        "company": company_name.strip(),
+        "company": normalized_company,
         "source_page": summary.get("content_urls", {}).get("desktop", {}).get("page"),
         "summary": extract,
         "ownership_hints": ownership_lines,
